@@ -31,15 +31,7 @@ var preguntasRandom = [Int]()
 var jugar = true
 while jugar{
     
-    
-    
-    //presentar una pregunta
-    //print("¿Cual es la pelicula?")
-    //print(questions[0])
-    //print(guesses[0].answer)
-    
-    
-    if !questions.isEmpty {
+    if !questions.isEmpty && questions.count != 5{
         print("Quieres seguir jugando??, si es sí pon una si o una no si no")
         let seguir = readLine()
         if seguir?.uppercased() == "no"{
@@ -47,33 +39,20 @@ while jugar{
         }
     }
     
-    
-    
     //Hacer una pregunta al azar
     print("¿Cual es la pelicula?")
     let preguntaNumero = Int(arc4random_uniform(UInt32(questions.count)))
-    /*
-    preguntasRandom.append(preguntaNumero)
-    preguntasRandom.sort()
-    print(preguntasRandom)
-     */
     print(questions[preguntaNumero])
     let respuestaRandom  = readLine()
     if respuestaRandom?.uppercased() == answers[preguntaNumero]{
         print("CORRECTO")
+        
+        questions.remove(at: preguntaNumero)
+        answers.remove(at: preguntaNumero)
     }else{
         print("NEL")
     }
-    questions.remove(at: preguntaNumero)
     
-    /*
-    //Leer la respuesta
-    let a  = readLine()
-    if a?.uppercased() == answers[0]{
-        print("CORRECTO")
-    }else{
-        print("NEL")
-    }
-     */
+    
 }
 
