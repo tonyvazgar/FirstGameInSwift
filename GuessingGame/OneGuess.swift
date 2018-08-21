@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+//Hereda de objeto NSObject
+class OneGuess: NSObject {
+    //variables
+    var emojis = String() //Se inicializa vacio
+    var answer = String() //Está vacio para que se ponga la respuesta
+    
+    
+    //Esto es un constructor de la clase
+    init(emojis: String, answer: String) {
+        self.emojis = emojis
+        self.answer = answer
+    }
+    
+}
